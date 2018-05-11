@@ -1,0 +1,44 @@
+{%extends 'stuff/base.html'%}
+{%load static%}
+{%block content%}
+    <title>{{object.title}}</title>
+    <section id="header" class="navbar nav-transparent text-primary">
+        <div class="container">
+            <div class="col-3">
+            </div>
+            <div class="col-1">
+                <img src="http://dlyapun.com/static/images/django.png" height="50" width="50" />
+            </div>
+            <div class="col-8">
+                <h1>Welcome to Django</h1>
+            </div>
+        </div>
+    </section>
+    <section id="main_section_page">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div class="fill-viewport align-items-center">
+                        <h2 class="lead text-info">Go back to our Main Page:</h2>
+                        <h4><a href="{% url 'stuff:index' %}">Back to Pages</a></h4>
+                    </div>
+                </div>
+                <div class="col-7">
+                    <h2>Query title: {{object.title}}</h2>
+                    <h4 id="text">Query text: </h4>
+                    <p>{{object.page_text}}</p>
+                    {% if object.image %}
+                        <h4>Query image:</h4>
+                        <img src="{{object.image.url}}" width="500" height="350" alt="Image not found" />
+                    {% endif %}
+                </div>
+                <div class="col-2">
+                    <h2 class="lead text-info">Query Info:</h2>
+                    <h4>ID: {{object.id}}   </h4>
+                    <h4>Creator: {{object.created_by}}</h4>
+                    <h4>Creation date: {{object.creation_date}}</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+{%endblock%}

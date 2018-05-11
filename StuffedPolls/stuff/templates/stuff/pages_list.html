@@ -1,0 +1,57 @@
+{%extends 'stuff/base.html'%}
+{%load static%}
+{%block content%}
+    <title>Pages list</title>
+    <section id="header" class="navbar nav-transparent text-primary">
+        <div class="container">
+            <div class="col-3">
+            </div>
+            <div class="col-1">
+                <img src="http://dlyapun.com/static/images/django.png" height="50" width="50" />
+            </div>
+            <div class="col-8">
+                <h1>Welcome to Django</h1>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h6 class="text-uppercase text-black-40">about django...</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="main_section_list">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <div class="fill-viewport align-items-center">
+                        <h2 class="lead text-info">Our Django Queries:</h2>
+                        {%if objects%}
+                            {%for element in objects%}
+                                <ul class="list-unstyled">
+                                    <li><a href="{%url 'stuff:list' element.id%}">{{element}}</a></li>
+                                </ul>
+                            {%endfor%}
+                        {%else%}
+                            <p>There are no pages in here...</p>
+                        {%endif%}
+                    </div>
+                </div>
+                <div class="col-8">
+                    <h2 class="lead text-info">What is Django?</h2>
+                    <p>Django is a free and open-source web framework, written in Python, which follows the model-view-template (MVT) architectural pattern.</p>
+                    <p>Original Author: Lawrence Journal-World</p>
+                    <p>Developers: Django Software Foundation</p>
+                    <p>Initial release: 21 July 2005; 12 years ago</p>
+                    <h3 class="lead text-info" id="more">More about Django:</h3>
+                    <p id="sites"><a href="www.djangoproject.com">Website</a> and <a href="https://github.com/django/django">GitHub</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+{%endblock%}
+
+
