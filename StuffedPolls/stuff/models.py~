@@ -111,10 +111,10 @@ class Character(models.Model):
     class Meta:
         abstract = True
 
-class AllianceCharacter(Character):
+class AllianceCharacter(Character)
     race = models.CharField(choices=Alliance_Races)
 
 
-class HordeCharacter(Character):
+class HordeCharacter(Character)
     race = models.CharField(choices=Horde_Races)
 
