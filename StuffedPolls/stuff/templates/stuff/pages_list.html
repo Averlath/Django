@@ -29,8 +29,8 @@
                 <div class="col-4">
                     <div class="fill-viewport align-items-center">
                         <h2 class="lead text-info">Our Django Queries:</h2>
-                        {%if objects%}
-                            {%for element in objects%}
+                        {%if page_list%}
+                            {%for element in page_list%}
                                 <ul class="list-unstyled">
                                     <li><a href="{%url 'stuff:list' element.id%}">{{element}}</a></li>
                                 </ul>
