@@ -104,17 +104,16 @@ class Character(models.Model):
         return self.character_name
 
     def has_image(self):
-
-        return True if self.image.find(self.string) == 0 else False
+        return True if str(self.image).find(self.string) == 0 else False
     has_image.boolean = True
 
     class Meta:
         abstract = True
 
 class AllianceCharacter(Character):
-    race = models.CharField(choices=Alliance_Races)
+    race = models.CharField(max_length=8, choices=Alliance_Races)
 
 
 class HordeCharacter(Character):
-    race = models.CharField(choices=Horde_Races)
+    race = models.CharField(max_length=8, choices=Horde_Races)
 

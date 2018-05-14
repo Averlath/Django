@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Page, Faction, Race, Character
+from .models import Page, Faction, Race, Character, AllianceCharacter, HordeCharacter
 
 
 class PageAdmin(admin.ModelAdmin):
@@ -26,6 +26,5 @@ class CharacterAdmin(admin.ModelAdmin):
 admin.site.register(Page, PageAdmin)
 admin.site.register(Faction, FactionAdmin)
 admin.site.register(Race, RacesAdmin)
-admin.site.register(Character, CharacterAdmin)
 admin.site.register(AllianceCharacter, CharacterAdmin)
 admin.site.register(HordeCharacter, CharacterAdmin)
