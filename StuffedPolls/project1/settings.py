@@ -119,7 +119,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/home/ivan/mycode/project1/stuff/static/'
+# STATIC_URL = '/home/ivan/mycode/project1/stuff/static/'
+#
+# MEDIA_ROOT = '/home/ivan/mycode/project1/stuff/static/media/'
+# MEDIA_URL = '/home/ivan/mycode/project1/stuff/static/media/'
 
-MEDIA_ROOT = '/home/ivan/mycode/project1/stuff/static/media/'
-MEDIA_URL = '/home/ivan/mycode/project1/stuff/static/media/'
+STATIC_URL = '/home/ivan/Desktop/Django/StuffedPolls/stuff/static/'
+STATIC_ROOT = '/home/ivan/Desktop/Django/StuffedPolls/stuff/static/'
+
+MEDIA_ROOT = '/home/ivan/Desktop/Django/StuffedPolls/stuff/static/media/'
+MEDIA_URL = '/home/ivan/Desktop/Django/StuffedPolls/stuff/static/media/'

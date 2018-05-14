@@ -18,47 +18,17 @@ class Page(models.Model):
     has_image.boolean = True
 
 
-class Faction(models.Model):
-    faction_name = models.CharField(max_length=100, default="")
-    faction_info = models.CharField(max_length=1000, default="")
-    image = models.ImageField(upload_to='images', null=True, blank=True)
-    string = "images"
-
-    def __str__(self):
-        return self.faction_name
-
-    def has_image(self):
-        return True if str(self.image).find(self.string) == 0 else False
-
-    has_image.boolean = True
-
-
-Faction_Choices = (
-    ('Alliance','Alliance'),
-    ('Horde', 'Horde'),
-    ('Allied', 'Allied Race'),
+Status_Choices = (
+    ('Alive', 'Alive'),
+    ('Dead', 'Dead'),
+    ('Incapacitated', 'Incapacitated'),
+    ('Unknown', 'Unknown'),
 )
-
-
-class Race(models.Model):
-    race_name = models.CharField(max_length=100, default="")
-    faction = models.CharField(max_length=8, choices=Faction_Choices, default="")
-    race_info = models.CharField(max_length=1000, default="")
-    image = models.ImageField(upload_to='images', null=True, blank=True)
-    string = "images"
-
-    def __str__(self):
-        return self.race_name
-
-    def has_image(self):
-        return True if str(self.image).find(self.string) == 0 else False
-
-    has_image.boolean = True
 
 
 Factions = (
     ('Choose', 'Choose...'),
-    ('Alliance','Alliance'),
+    ('Alliance', 'Alliance'),
     ('Horde', 'Horde'),
 )
 
@@ -74,7 +44,7 @@ Alliance_Races = (
 )
 
 Horde_Races = (
-    ('Orc','Orc'),
+    ('Orc', 'Orc'),
     ('Undead', 'Undead'),
     ('Tauren', 'Tauren'),
     ('Troll', 'Troll'),
@@ -83,19 +53,29 @@ Horde_Races = (
     ('Pandaren', 'Pandaren'),
 )
 
-
-Status_Choices = (
-    ('Alive','Alive'),
-    ('Dead', 'Dead'),
-    ('Incapacitated', 'Incapacitated'),
-    ('Unknown', 'Unknown'),
+Classes = (
+    ('Mage', 'Mage'),
+    ('Priest', 'Priest'),
+    ('Lock', 'Warlock'),
+    ('DH', 'Demon Hunter'),
+    ('Druid', 'Druid'),
+    ('Monk', 'Monk'),
+    ('Rogue', 'Rogue'),
+    ('Hunter', 'Hunter'),
+    ('Shaman', 'Shaman'),
+    ('DK', 'Death Knight'),
+    ('Paladin', 'Paladin'),
+    ('Warrior', 'Warrior'),
 )
 
 
 class Character(models.Model):
     character_name = models.CharField(max_length=100, default="")
-    allied_with = models.CharField(max_length=8, choices=Factions, default="")
+    character_info = models.CharField(max_length=9999, default="")
+    faction = models.CharField(max_length=8, choices=Factions, default="")
     status = models.CharField(max_length=8, choices=Status_Choices, default="")
+    character_class = models.CharField(max_length=20, choices=Classes, default="")
+    article_creation_date = models.DateTimeField('creation_date', null=True)
     image = models.ImageField(upload_to='images', null=True, blank=True)
     string = "images"
 
@@ -106,8 +86,13 @@ class Character(models.Model):
         return True if str(self.image).find(self.string) == 0 else False
     has_image.boolean = True
 
+    def has_info(self):
+        return True if self.character_info != "" else False
+    has_info.boolean = True
+
     class Meta:
         abstract = True
+
 
 class AllianceCharacter(Character):
     race = models.CharField(max_length=8, choices=Alliance_Races)

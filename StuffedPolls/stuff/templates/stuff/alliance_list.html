@@ -1,25 +1,16 @@
 {%extends 'stuff/base.html'%}
 {%load static%}
 {%block content%}
-    <title>Pages list</title>
+    <title>Alliance list</title>
     <section id="header" class="navbar nav-transparent text-primary">
         <div class="container">
             <div class="col-3">
             </div>
             <div class="col-1">
-                <img src="http://dlyapun.com/static/images/django.png" height="50" width="50" />
+                <img src="https://awaitingthemuse.files.wordpress.com/2014/04/30day-day-1-alliance.png" height="50" width="50" />
             </div>
             <div class="col-8">
-                <h1>Welcome to Django</h1>
-            </div>
-        </div>
-    </section>
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h6 class="text-uppercase text-black-40">about django...</h6>
-                </div>
+                <h1>Alliance Characters</h1>
             </div>
         </div>
     </section>
@@ -28,7 +19,7 @@
             <div class="row">
                 <div class="col-4">
                     <div class="fill-viewport align-items-center">
-                        <h2 class="lead text-info">Our Django Queries:</h2>
+                        <h2 class="lead text-info">List of characters:</h2>
                         {%if alliance%}
                             {%for element in alliance%}
                                 <ul class="list-unstyled">
@@ -36,7 +27,7 @@
                                 </ul>
                             {%endfor%}
                         {%else%}
-                            <p>There are no pages in here...</p>
+                            <p>There are no characters in here...</p>
                         {%endif%}
                     </div>
                 </div>
