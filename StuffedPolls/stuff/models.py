@@ -95,7 +95,6 @@ Status_Choices = (
 class Character(models.Model):
     character_name = models.CharField(max_length=100, default="")
     allied_with = models.CharField(max_length=8, choices=Factions, default="")
-    race = ""
     status = models.CharField(max_length=8, choices=Status_Choices, default="")
     image = models.ImageField(upload_to='images', null=True, blank=True)
     string = "images"

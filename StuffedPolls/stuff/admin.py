@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Page, Faction, Race, Character, AllianceCharacter, HordeCharacter
+from .models import Page, Faction, Race, AllianceCharacter, HordeCharacter
 
 
 class PageAdmin(admin.ModelAdmin):

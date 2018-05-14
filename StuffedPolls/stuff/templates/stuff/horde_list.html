@@ -29,25 +29,16 @@
                 <div class="col-4">
                     <div class="fill-viewport align-items-center">
                         <h2 class="lead text-info">Our Django Queries:</h2>
-                        {%if page_list%}
-                            {%for element in page_list%}
+                        {%if horde%}
+                            {%for element in horde%}
                                 <ul class="list-unstyled">
-                                    <li><a href="{%url 'stuff:page' element.id%}">{{element}}</a></li>
+                                    <li><a href="{%url 'stuff:hordecharacter' element.id%}">{{element}}</a></li>
                                 </ul>
                             {%endfor%}
                         {%else%}
                             <p>There are no pages in here...</p>
                         {%endif%}
                     </div>
-                </div>
-                <div class="col-8">
-                    <h2 class="lead text-info">What is Django?</h2>
-                    <p>Django is a free and open-source web framework, written in Python, which follows the model-view-template (MVT) architectural pattern.</p>
-                    <p>Original Author: Lawrence Journal-World</p>
-                    <p>Developers: Django Software Foundation</p>
-                    <p>Initial release: 21 July 2005; 12 years ago</p>
-                    <h3 class="lead text-info" id="more">More about Django:</h3>
-                    <p id="sites"><a href="www.djangoproject.com">Website</a> and <a href="https://github.com/django/django">GitHub</a></p>
                 </div>
             </div>
         </div>
