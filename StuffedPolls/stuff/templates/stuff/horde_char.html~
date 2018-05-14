@@ -28,9 +28,9 @@
                 <div class="col-6">
                     <h2 id="text" class="lead text-info">About {{object.character_name}}</h2>
                     <hr id="hr" />
-                    {% if object.character_info != None %}
+                    {% if {{object.character_info != None}} %}
                         <p>{{object.character_info}}</p>
-                    {% endif %}	
+                    {% endif %}
                     {% if object.image %}
                         <img src="{{object.image.url}}" width="500" height="350" alt="Image not found" />
                     {% endif %}

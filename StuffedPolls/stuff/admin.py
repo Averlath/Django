@@ -12,7 +12,7 @@ class PageAdmin(admin.ModelAdmin):
 class CharacterAdmin(admin.ModelAdmin):
     list_display = ("character_name", "id", "faction", "race", "character_class", "status", "article_creation_date",
                     "has_image", "has_info")
-    list_filter = ["race", "character_class"]
+    list_filter = ["race"]
     search_fields = ["character_name", "id"]
 
 

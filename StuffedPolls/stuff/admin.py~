@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Page, Faction, Race, Character
+from .models import Page, AllianceCharacter, HordeCharacter
 
 
 class PageAdmin(admin.ModelAdmin):
@@ -9,21 +9,13 @@ class PageAdmin(admin.ModelAdmin):
     search_fields = ["title"]
 
 
-class FactionAdmin(admin.ModelAdmin):
-    list_display = ("faction_name", "id", "has_image")
-    search_fields = ["faction_name"]
-
-
-class RacesAdmin(admin.ModelAdmin):
-    list_display = ("race_name", "id", "faction",  "has_image")
-    list_filter = ["faction"]
-    search_fields = ["race_name"]
-
-
 class CharacterAdmin(admin.ModelAdmin):
-    list_display = ("character_name", "id", "allied_with", "status", "has_image")
+    list_display = ("character_name", "id", "faction", "race", "character_class", "status", "article_creation_date",
+                    "has_image", "has_info")
+    list_filter = ["race", "character_class"]
+    search_fields = ["character_name", "id"]
+
 
 admin.site.register(Page, PageAdmin)
-admin.site.register(Faction, FactionAdmin)
-admin.site.register(Race, RacesAdmin)
-admin.site.register(Character, CharacterAdmin)
+admin.site.register(AllianceCharacter, CharacterAdmin)
+admin.site.register(HordeCharacter, CharacterAdmin)

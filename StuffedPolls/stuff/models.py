@@ -71,7 +71,7 @@ Classes = (
 
 class Character(models.Model):
     character_name = models.CharField(max_length=100, default="")
-    character_info = models.CharField(max_length=9999, default="")
+    character_info = models.CharField(max_length=9999, null=True, blank=True)
     faction = models.CharField(max_length=8, choices=Factions, default="")
     status = models.CharField(max_length=8, choices=Status_Choices, default="")
     character_class = models.CharField(max_length=20, choices=Classes, default="")
@@ -87,7 +87,7 @@ class Character(models.Model):
     has_image.boolean = True
 
     def has_info(self):
-        return True if self.character_info != "" else False
+        return True if self.character_info != None else False
     has_info.boolean = True
 
     class Meta:
