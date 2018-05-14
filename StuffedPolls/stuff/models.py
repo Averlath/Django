@@ -115,4 +115,3 @@ class AllianceCharacter(Character):
 
 class HordeCharacter(Character):
     race = models.CharField(max_length=8, choices=Horde_Races)
-

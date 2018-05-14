@@ -1,6 +1,6 @@
 from django.views.generic import ListView, DetailView
 
-from .models import Page, Character, HordeCharacter, AllianceCharacter
+from .models import Page, HordeCharacter, AllianceCharacter
 
 
 class IndexView(ListView):
