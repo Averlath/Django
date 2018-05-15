@@ -1,0 +1,74 @@
+{%extends 'stuff/base.html'%}
+{%block content%}
+    <title>World of Warcraft</title>
+    <section id="header" class="navbar nav-transparent text-primary">
+        <div class="container">
+            <div class="col-3">
+            </div>
+            <div class="col-1">
+                <img src="https://awaitingthemuse.files.wordpress.com/2014/04/30day-day-1-alliance.png" height="50" width="50" />
+            </div>
+            <div class="col-8">
+                <h1>World of Warcraft</h1>
+            </div>
+        </div>
+    </section>
+    <section id="main_section_list">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <h3 class="lead text-info">Quick Links:</h3>
+                    <h4><a href="{% url 'stuff:race' %}">Races</a></h4>
+                    <h4><a href="{% url 'stuff:faction' %}">Factions</a></h4>
+                    <h4><a href="{% url 'stuff:class' %}">Classes</a></h4>
+                    <h4><a href="{% url 'stuff:alliance' %}">Alliance Characters</a></h4>
+                    <h4><a href="{% url 'stuff:horde' %}">Horde Characters</a></h4>
+                    <h4><a href="{% url 'stuff:start' %}">Main Page</a></h4>
+                </div>
+                <div class="col-8">
+                    <h2 class="lead text-info">Mage</h2>
+                    <hr class="small" />
+                    <p>Alliance Text</p>
+                    <h3 class="lead text-info">Priest</h3>
+                    <hr class="small" />
+                    <p>Horde Text</p>
+                    <h2 class="lead text-info">Warlock</h2>
+                    <hr class="small" />
+                    <p>Alliance Text</p>
+                    <h3 class="lead text-info">Demon Hunter</h3>
+                    <hr class="small" />
+                    <p>Horde Text</p>
+                    <h2 class="lead text-info">Druid</h2>
+                    <hr class="small" />
+                    <p>Alliance Text</p>
+                    <h3 class="lead text-info">Monk</h3>
+                    <hr class="small" />
+                    <p>Horde Text</p>
+                    <h2 class="lead text-info">Rogue</h2>
+                    <hr class="small" />
+                    <p>Alliance Text</p>
+                    <h3 class="lead text-info">Hunter</h3>
+                    <hr class="small" />
+                    <p>Horde Text</p>
+                    <h2 class="lead text-info">Shaman</h2>
+                    <hr class="small" />
+                    <p>Alliance Text</p>
+                    <h3 class="lead text-info">Death Knight</h3>
+                    <hr class="small" />
+                    <p>Horde Text</p>
+                    <h2 class="lead text-info">Paladin</h2>
+                    <hr class="small" />
+                    <p>Alliance Text</p>
+                    <h3 class="lead text-info">Warrior</h3>
+                    <hr class="small" />
+                    <p>Horde Text</p>
+                </div>
+                <div class="col-1">
+                    <!-->
+                </div>
+            </div>
+        </div>
+    </section>
+{%endblock%}
+
+

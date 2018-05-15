@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView, TemplateView
-from .models import HordeCharacter, AllianceCharacter
+from .models import HordeCharacter, AllianceCharacter, Faction, Class, Character
 
 
 class Start(TemplateView):
@@ -30,11 +30,14 @@ class AllianceView(DetailView):
 
 class RaceView(TemplateView):
     template_name = 'stuff/races.html'
+    model = Character
 
 
 class FactionView(TemplateView):
     template_name = 'stuff/factions.html'
+    model = Faction
 
 
 class ClassView(TemplateView):
     template_name = 'stuff/classes.html'
+    model = Class
