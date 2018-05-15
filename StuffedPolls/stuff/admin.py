@@ -1,12 +1,6 @@
 from django.contrib import admin
 
-from .models import Page, AllianceCharacter, HordeCharacter
-
-
-class PageAdmin(admin.ModelAdmin):
-    list_display = ("title", "id", "article_created_by", "article_creation_date", "has_image")
-    list_filter = ["title"]
-    search_fields = ["title"]
+from .models import AllianceCharacter, HordeCharacter
 
 
 class CharacterAdmin(admin.ModelAdmin):
@@ -16,6 +10,12 @@ class CharacterAdmin(admin.ModelAdmin):
     search_fields = ["character_name", "id"]
 
 
-admin.site.register(Page, PageAdmin)
 admin.site.register(AllianceCharacter, CharacterAdmin)
 admin.site.register(HordeCharacter, CharacterAdmin)
+
+# class PageAdmin(admin.ModelAdmin):
+#     list_display = ("title", "id", "article_created_by", "article_creation_date", "has_image")
+#     list_filter = ["title"]
+#     search_fields = ["title"]
+
+# admin.site.register(Page, PageAdmin)

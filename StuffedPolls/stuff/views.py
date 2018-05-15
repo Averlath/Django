@@ -1,15 +1,9 @@
-from django.views.generic import ListView, DetailView
-from .models import Page, HordeCharacter, AllianceCharacter
+from django.views.generic import ListView, DetailView, TemplateView
+from .models import HordeCharacter, AllianceCharacter
 
 
-class IndexView(ListView):
-    template_name = 'stuff/pages_list.html'
-    model = Page
-
-
-class AnyPageView(DetailView):
-    template_name = 'stuff/page.html'
-    model = Page
+class Start(TemplateView):
+    template_name = 'stuff/start.html'
 
 
 class HordeCharacterView(ListView):
@@ -32,3 +26,12 @@ class AllianceCharacterView(ListView):
 class AllianceView(DetailView):
     template_name = 'stuff/alliance_char.html'
     model = AllianceCharacter
+
+# class IndexView(ListView):
+#     template_name = 'stuff/pages_list.html'
+#     model = Page
+#
+#
+# class AnyPageView(DetailView):
+#     template_name = 'stuff/page.html'
+#     model = Page

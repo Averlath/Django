@@ -1,23 +1,6 @@
 from django.db import models
 
 
-class Page(models.Model):
-    title = models.CharField(max_length=100, default="")
-    page_text = models.CharField(max_length=1000, default="")
-    article_created_by = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True)
-    article_creation_date = models.DateTimeField('creation_date', null=True)
-    image = models.ImageField(upload_to='images', null=True, blank=True)
-    string = "images"
-
-    def __str__(self):
-        return self.title
-
-    def has_image(self):
-        return True if str(self.image).find(self.string) == 0 else False
-
-    has_image.boolean = True
-
-
 Status_Choices = (
     ('Alive', 'Alive'),
     ('Dead', 'Dead'),
@@ -100,3 +83,20 @@ class AllianceCharacter(Character):
 
 class HordeCharacter(Character):
     race = models.CharField(max_length=8, choices=Horde_Races)
+
+
+# class Page(models.Model):
+#     title = models.CharField(max_length=100, default="")
+#     page_text = models.CharField(max_length=1000, default="")
+#     article_created_by = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True)
+#     article_creation_date = models.DateTimeField('creation_date', null=True)
+#     image = models.ImageField(upload_to='images', null=True, blank=True)
+#     string = "images"
+#
+#     def __str__(self):
+#         return self.title
+#
+#     def has_image(self):
+#         return True if str(self.image).find(self.string) == 0 else False
+#
+#     has_image.boolean = True
