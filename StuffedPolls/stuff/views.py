@@ -27,11 +27,14 @@ class AllianceView(DetailView):
     template_name = 'stuff/alliance_char.html'
     model = AllianceCharacter
 
-# class IndexView(ListView):
-#     template_name = 'stuff/pages_list.html'
-#     model = Page
-#
-#
-# class AnyPageView(DetailView):
-#     template_name = 'stuff/page.html'
-#     model = Page
+
+class RaceView(TemplateView):
+    template_name = 'stuff/races.html'
+
+
+class FactionView(TemplateView):
+    template_name = 'stuff/factions.html'
+
+
+class ClassView(TemplateView):
+    template_name = 'stuff/classes.html'

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import AllianceCharacter, HordeCharacter, Faction
+from .models import AllianceCharacter, HordeCharacter, Faction, Status, Class, HordeRaces, AllianceRaces
 
 
 class CharacterAdmin(admin.ModelAdmin):
@@ -21,13 +21,47 @@ class FactionAdmin(admin.ModelAdmin):
             return True
 
 
+class StatusAdmin(admin.ModelAdmin):
+    list_display = ["status"]
+
+
+class AllianceRacesAdmin(admin.ModelAdmin):
+    list_display = ["alliance_race"]
+
+    def has_add_permission(self, request):
+        num_objects = self.model.objects.count()
+        if num_objects >= 7:
+            return False
+        else:
+            return True
+
+
+class HordeRacesAdmin(admin.ModelAdmin):
+    list_display = ["horde_race"]
+
+    def has_add_permission(self, request):
+        num_objects = self.model.objects.count()
+        if num_objects >= 7:
+            return False
+        else:
+            return True
+
+
+class ClassAdmin(admin.ModelAdmin):
+    list_display = ["class_name"]
+
+    def has_add_permission(self, request):
+        num_objects = self.model.objects.count()
+        if num_objects >= 12:
+            return False
+        else:
+            return True
+
+
 admin.site.register(AllianceCharacter, CharacterAdmin)
 admin.site.register(HordeCharacter, CharacterAdmin)
 admin.site.register(Faction, FactionAdmin)
-
-# class PageAdmin(admin.ModelAdmin):
-#     list_display = ("title", "id", "article_created_by", "article_creation_date", "has_image")
-#     list_filter = ["title"]
-#     search_fields = ["title"]
-
-# admin.site.register(Page, PageAdmin)
+admin.site.register(Status, StatusAdmin)
+admin.site.register(AllianceRaces, AllianceRacesAdmin)
+admin.site.register(HordeRaces, HordeRacesAdmin)
+admin.site.register(Class, ClassAdmin)
