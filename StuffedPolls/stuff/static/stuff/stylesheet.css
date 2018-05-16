@@ -26,8 +26,7 @@ body {
   font-size: 30px;
 }
 
-#big {
-  border-color: black;
+.big {
   border: 2px solid;
 }
 
