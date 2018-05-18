@@ -1,6 +1,6 @@
 {% extends 'stuff/base.html' %}
 {% block content %}
-    <title>Horde list</title>
+    <title>Characters</title>
     <section id="header" class="navbar nav-transparent text-primary">
         <div class="container">
             <div class="col-3">
@@ -33,8 +33,16 @@
                         <h4><a href="{% url 'polls:index' %}">Polls</a></h4>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-6">
                     <div id="inline" class="fill-viewport align-items-center">
+                        <h2 class="title text-info">Alliance</h2>
+                        <hr class="big" />
+                        <ul class="list-unstyled">
+                            {% for character in alliance_list %}
+                                <li><a href="{% url 'stuff:alliance' character.id %}"><span class="text-info">{{character}}</span></a> - <span>{{character.faction}}</span> - <span>{{character.race}}</span> - <span>{{character.character_class}}</span></li>
+                            {% endfor %}
+                        </ul>
+                        <br /><br /><br />
                         <h2 class="title text-info">Horde</h2>
                         <hr class="big" />
                         <ul class="list-unstyled">
@@ -42,15 +50,14 @@
                                 <li><a href="{% url 'stuff:horde' character.id %}"><span class="text-info">{{character}}</span></a> - <span>{{character.faction}}</span> - <span>{{character.race}}</span> - <span>{{character.character_class}}</span></li>
                             {% endfor %}
                         </ul>
-                            <br /><br /><br />
-                            <h2 class="title text-info">Alliance</h2>
-                            <hr class="big" />
-                        <ul class="list-unstyled">
-                            {% for character in alliance_list %}
-                            <li><a href="{% url 'stuff:alliance' character.id %}"><span class="text-info">{{character}}</span></a> - <span>{{character.faction}}</span> - <span>{{character.race}}</span> - <span>{{character.character_class}}</span></li>
-                            {% endfor %}
-                        </ul>
                     </div>
+                </div>
+                <div class="col-3">
+                    <h2 class="lead text-info">Statistics:</h2>
+                    <h4>Total Characters: {{num_total}}</h4>
+                    <h4>Alliance: {{num_alliance}}</h4>
+                    <h4>Horde: {{num_horde}}</h4>
+                    <h4>{{highest}}</h4>
                 </div>
             </div>
         </div>

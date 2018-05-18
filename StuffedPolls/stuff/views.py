@@ -6,14 +6,34 @@ class Start(TemplateView):
     template_name = 'stuff/start.html'
 
 
-class HordeCharacterView(ListView):
+class CharacterView(ListView):
     template_name = 'stuff/character_list.html'
     model = HordeCharacter
+
+    def count(self):
+        dict = {}
+        highest = 0
+        for element in HordeCharacter.objects.all(), AllianceCharacter.objects.all():
+            if element.race in dict:
+                dict[element.race] += 1
+            else:
+                dict[element.race] = 1
+            for race in dict:
+                if dict[race] > highest:
+                    highest = race
+                else:
+                    pass
+        return highest
 
     def get_context_data(self, *, object_list=None, **kwargs):
         ctx = super().get_context_data(object_list=object_list, **kwargs)
         ctx['alliance_list'] = AllianceCharacter.objects.all()
+        ctx['num_alliance'] = AllianceCharacter.objects.count()
+        ctx['num_horde'] = HordeCharacter.objects.count()
+        ctx['num_total'] = AllianceCharacter.objects.count() + HordeCharacter.objects.count()
+        ctx['highest'] = self.count()
         return ctx
+
 
 
 class HordeView(DetailView):
