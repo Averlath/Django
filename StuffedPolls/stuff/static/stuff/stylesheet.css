@@ -2,10 +2,6 @@ body {
   background-color: #F5F5DC;
 }
 
-#header h1 {
-  font-family: Ubuntu Condensed, Arial, Helvetica Neue, Helvetica,Arial, sans-serif;
-}
-
 #about, #main_section_list, #main_section_page {
   margin-top: 50px;
 }
@@ -32,4 +28,7 @@ body {
 
 .small {
   border-color: black;
+
+.title {
+  font-size: 10px;
 }

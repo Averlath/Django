@@ -22,7 +22,6 @@
                         <h4><a href="{% url 'stuff:race' %}">Races</a></h4>
                         <h4><a href="{% url 'stuff:faction' %}">Factions</a></h4>
                         <h4><a href="{% url 'stuff:class' %}">Classes</a></h4>
-                        <h4><a href="{% url 'stuff:alliance' %}">Alliance Characters</a></h4>
                         <h4><a href="{% url 'stuff:horde' %}">Horde Characters</a></h4>
                         <h4><a href="{% url 'stuff:start' %}">Main Page</a></h4>
                     </div>
@@ -30,7 +29,9 @@
                 <div class="col-6">
                     <h2 id="text" class="lead text-info">About {{object.character_name}}</h2>
                     <hr id="hr" />
-                    <p>{{object.character_info}}</p>
+                    {% if object.character_info != None %}
+                        <p>{{object.character_info}}</p>
+                    {% endif %}	
                     {% if object.image %}
                         <img src="{{object.image.url}}" width="500" height="350" alt="Image not found" />
                     {% endif %}

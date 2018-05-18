@@ -8,8 +8,14 @@
             <div class="col-1">
                 <img src="https://seeklogo.com/images/W/World_of_Warcraft_Horde_PvP-logo-E1C4DB80A9-seeklogo.com.png" height="50" width="40" />
             </div>
-            <div class="col-8">
-                <h1>Horde Characters</h1>
+            <div class="col-3">
+                <h1>Characters</h1>
+            </div>
+            <div class="col-1">
+                <img src="https://awaitingthemuse.files.wordpress.com/2014/04/30day-day-1-alliance.png" height="50" width="50" />
+            </div>
+            <div class="col-4">
+                <!-->
             </div>
         </div>
     </section>
@@ -19,15 +25,14 @@
                 <div class="col-4">
                     <div class="fill-viewport align-items-center">
                         <h2 class="lead text-info">List of characters:</h2>
-                        {%if horde%}
-                            {%for element in horde%}
-                                <ul class="list-unstyled">
-                                    <li><a href="{%url 'stuff:hordecharacter' element.id%}">{{element}}</a></li>
-                                </ul>
-                            {%endfor%}
-                        {%else%}
-                            <p>There are no pages in here...</p>
-                        {%endif%}
+                        <h3>Horde</h3>
+                        {% for character in hordecharacter_list %}
+                            <p>{{character}}</p>
+                        {% endfor %}
+                        <h3>Alliance</h3>
+                        {% for character in alliance_list %}
+                            <p>{{character}}</p>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

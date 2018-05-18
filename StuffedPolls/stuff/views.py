@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView, TemplateView
-from .models import HordeCharacter, AllianceCharacter, Faction, Class, Character
+from .models import HordeCharacter, AllianceCharacter, Faction, Class, AllianceRaces, HordeRaces
 
 
 class Start(TemplateView):
@@ -7,9 +7,13 @@ class Start(TemplateView):
 
 
 class HordeCharacterView(ListView):
-    template_name = 'stuff/horde_list.html'
+    template_name = 'stuff/character_list.html'
     model = HordeCharacter
-    context_object_name = 'horde'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        ctx = super().get_context_data(object_list=object_list, **kwargs)
+        ctx['alliance_list'] = AllianceCharacter.objects.all()
+        return ctx
 
 
 class HordeView(DetailView):
@@ -17,27 +21,26 @@ class HordeView(DetailView):
     model = HordeCharacter
 
 
-class AllianceCharacterView(ListView):
-    template_name = 'stuff/alliance_list.html'
-    model = AllianceCharacter
-    context_object_name = 'alliance'
-
-
 class AllianceView(DetailView):
     template_name = 'stuff/alliance_char.html'
     model = AllianceCharacter
 
 
-class RaceView(TemplateView):
+class RaceView(ListView):
     template_name = 'stuff/races.html'
-    model = Character
+    model = AllianceRaces
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        ctx = super().get_context_data(object_list=object_list, **kwargs)
+        ctx['horde_list'] = HordeRaces.objects.all()
+        return ctx
 
 
-class FactionView(TemplateView):
+class FactionView(ListView):
     template_name = 'stuff/factions.html'
     model = Faction
 
 
-class ClassView(TemplateView):
+class ClassView(ListView):
     template_name = 'stuff/classes.html'
     model = Class

@@ -21,59 +21,26 @@
                     <h4><a href="{% url 'stuff:race' %}">Races</a></h4>
                     <h4><a href="{% url 'stuff:faction' %}">Factions</a></h4>
                     <h4><a href="{% url 'stuff:class' %}">Classes</a></h4>
-                    <h4><a href="{% url 'stuff:alliance' %}">Alliance Characters</a></h4>
                     <h4><a href="{% url 'stuff:horde' %}">Horde Characters</a></h4>
                     <h4><a href="{% url 'stuff:start' %}">Main Page</a></h4>
                 </div>
                 <div class="col-8">
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="big" />
-                    <p>Alliance Text</p>
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="small" />
-                    <p>Alliance Text</p>
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="small" />
-                    <p>Alliance Text</p>
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="small" />
-                    <p>Alliance Text</p>
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="small" />
-                    <p>Alliance Text</p>
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="small" />
-                    <p>Alliance Text</p>
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="small" />
-                    <p>Alliance Text</p>
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="small" />
-                    <p>Alliance Text</p>
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="big" />
-                    <p>Alliance Text</p>
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="small" />
-                    <p>Alliance Text</p>
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="small" />
-                    <p>Alliance Text</p>
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="small" />
-                    <p>Alliance Text</p>
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="small" />
-                    <p>Alliance Text</p>
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="small" />
-                    <p>Alliance Text</p>
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="small" />
-                    <p>Alliance Text</p>
-                    <h2 class="lead text-info">Alliance</h2>
-                    <hr class="small" />
-                    <p>Alliance Text</p>
+
+                    <h2 class="title text-info">Alliance</h2>
+                    <hr class="big" /><br />
+                    {% for race in allianceraces_list %}
+                        <h2 class="lead text-info">{{race}}</h2>
+                        <hr class="small">
+                        <p>{{race.alliance_text}}</p>
+                    {% endfor %}
+                    <br /><br /><br />
+                    <h2 class="title text-info">Horde</h2>
+                    <hr class="big" /><br>
+                    {% for race in horde_list %}
+                        <h2 class="lead text-info">{{race}}</h2>
+                        <hr class="small">
+                        <p>{{race.horde_text}}</p>
+                    {% endfor %}
                 </div>
                 <div class="col-1">
                     <!-->
