@@ -1,5 +1,5 @@
-{%extends 'stuff/base.html'%}
-{%block content%}
+{% extends 'stuff/base.html' %}
+{% block content %}
     <title>{{object.character_name}}</title>
     <section id="header" class="navbar nav-transparent text-primary">
         <div class="container">
@@ -19,16 +19,17 @@
                 <div class="col-3">
                     <div class="fill-viewport align-items-center">
                         <h3 class="lead text-info">Quick Links:</h3>
-                        <h4><a href="{% url 'stuff:race' %}">Races</a></h4>
+                        <h4><a href="{% url 'stuff:start' %}">Main Page</a></h4>
                         <h4><a href="{% url 'stuff:faction' %}">Factions</a></h4>
+                        <h4><a href="{% url 'stuff:race' %}">Races</a></h4>
                         <h4><a href="{% url 'stuff:class' %}">Classes</a></h4>
                         <h4><a href="{% url 'stuff:characters' %}">Characters</a></h4>
-                        <h4><a href="{% url 'stuff:start' %}">Main Page</a></h4>
+                        <h4><a href="{% url 'polls:index' %}">Polls</a></h4>
                     </div>
                 </div>
                 <div class="col-6">
                     <h2 id="text" class="lead text-info">About {{object.character_name}}</h2>
-                    <hr id="hr" />
+                    <hr class="big" />
                     {% if object.character_info != None %}
                         <p>{{object.character_info}}</p>
                     {% endif %}	
@@ -50,4 +51,4 @@
             </div>
         </div>
     </section>
-{%endblock%}
+{% endblock %}
