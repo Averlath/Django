@@ -22,17 +22,31 @@
     <section id="main_section_list">
         <div class="container">
             <div class="row">
-                <div class="col-4">
+                <div class="col-3">
                     <div class="fill-viewport align-items-center">
-                        <h2 class="lead text-info">List of characters:</h2>
-                        <h3>Horde</h3>
-                        {% for character in hordecharacter_list %}
-                            <p>{{character}}</p>
-                        {% endfor %}
-                        <h3>Alliance</h3>
-                        {% for character in alliance_list %}
-                            <p>{{character}}</p>
-                        {% endfor %}
+                        <h3 class="lead text-info">Quick Links:</h3>
+                        <h4><a href="{% url 'stuff:race' %}">Races</a></h4>
+                        <h4><a href="{% url 'stuff:faction' %}">Factions</a></h4>
+                        <h4><a href="{% url 'stuff:class' %}">Classes</a></h4>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div id="inline" class="fill-viewport align-items-center">
+                        <h2 class="title text-info">Horde</h2>
+                        <hr class="big" />
+                        <ul class="list-unstyled">
+                            {% for character in hordecharacter_list %}
+                                <li><a href="{%url 'stuff:horde' character.id%}"><span class="text-info">{{character}}</span></a> - <span>{{character.faction}}</span> - <span>{{character.race}}</span> - <span>{{character.character_class}}</span></li>
+                            {% endfor %}
+                        </ul>
+                            <br /><br /><br />
+                            <h2 class="title text-info">Alliance</h2>
+                            <hr class="big" />
+                        <ul class="list-unstyled">
+                            {% for character in alliance_list %}
+                            <li><a href="{%url 'stuff:alliance' character.id%}"><span class="text-info">{{character}}</span></a> - <span>{{character.faction}}</span> - <span>{{character.race}}</span> - <span>{{character.character_class}}</span></li>
+                            {% endfor %}
+                        </ul>
                     </div>
                 </div>
             </div>

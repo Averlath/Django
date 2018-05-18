@@ -21,7 +21,7 @@
                     <h4><a href="{% url 'stuff:race' %}">Races</a></h4>
                     <h4><a href="{% url 'stuff:faction' %}">Factions</a></h4>
                     <h4><a href="{% url 'stuff:class' %}">Classes</a></h4>
-                    <h4><a href="{% url 'stuff:horde' %}">Horde Characters</a></h4>
+                    <h4><a href="{% url 'stuff:characters' %}">Characters</a></h4>
                     <h4><a href="{% url 'stuff:start' %}">Main Page</a></h4>
                 </div>
                 <div class="col-8">
@@ -37,7 +37,7 @@
                     <h2 class="title text-info">Horde</h2>
                     <hr class="big" /><br>
                     {% for race in horde_list %}
-                        <h2 class="lead text-info">{{race}}</h2>
+                        <p class="lead text-info">{{race}}</p>
                         <hr class="small">
                         <p>{{race.horde_text}}</p>
                     {% endfor %}
