@@ -7,6 +7,10 @@ class Status(models.Model):
     def __str__(self):
         return self.status
 
+    @property
+    def is_player(self):
+        return self.status.__str__() == 'Player'
+
     class Meta:
         verbose_name_plural = "Status"
 
@@ -55,9 +59,10 @@ class Faction(models.Model):
 class Character(models.Model):
     character_name = models.CharField(max_length=100, default="")
     character_info = models.CharField(max_length=9999, null=True, blank=True)
-    faction = models.ForeignKey(Faction, on_delete=models.CASCADE, null=True, blank=True)
-    status = models.ForeignKey(Status, on_delete=models.CASCADE, null=True, blank=True)
-    character_class = models.ForeignKey(Class, on_delete=models.CASCADE, null=True, blank=True)
+    faction = models.ForeignKey(Faction, on_delete=models.CASCADE, default="")
+    status = models.ForeignKey(Status, on_delete=models.CASCADE, default="")
+    character_class = models.ForeignKey(Class, on_delete=models.CASCADE, default="")
+    level = models.PositiveIntegerField(default=1)
     article_creation_date = models.DateTimeField('creation_date', null=True)
     image = models.ImageField(upload_to='images', null=True, blank=True)
     string = "images"
@@ -78,8 +83,8 @@ class Character(models.Model):
 
 
 class AllianceCharacter(Character):
-    race = models.ForeignKey(AllianceRaces, on_delete=models.CASCADE, null=True, blank=True)
+    race = models.ForeignKey(AllianceRaces, on_delete=models.CASCADE, default="")
 
 
 class HordeCharacter(Character):
-    race = models.ForeignKey(HordeRaces, on_delete=models.CASCADE, null=True, blank=True)
+    race = models.ForeignKey(HordeRaces, on_delete=models.CASCADE, default="")

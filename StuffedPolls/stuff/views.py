@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView, TemplateView
-from .models import HordeCharacter, AllianceCharacter, Faction, Class, AllianceRaces, HordeRaces
+from .models import HordeCharacter, AllianceCharacter, Faction, Class, AllianceRaces, HordeRaces, Status
 
 
 class Start(TemplateView):
@@ -10,12 +10,13 @@ class CharacterView(ListView):
     template_name = 'stuff/character_list.html'
     model = HordeCharacter
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        ctx = super().get_context_data(object_list=object_list, **kwargs)
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
         ctx['alliance_list'] = AllianceCharacter.objects.all()
         ctx['num_alliance'] = AllianceCharacter.objects.count()
         ctx['num_horde'] = HordeCharacter.objects.count()
         ctx['num_total'] = AllianceCharacter.objects.count() + HordeCharacter.objects.count()
+        ctx['PLAYER_STATUS'] = Status.objects.get(pk=5)
         return ctx
 
 
@@ -33,8 +34,8 @@ class RaceView(ListView):
     template_name = 'stuff/races.html'
     model = AllianceRaces
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        ctx = super().get_context_data(object_list=object_list, **kwargs)
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
         ctx['horde_list'] = HordeRaces.objects.all()
         return ctx
 

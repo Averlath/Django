@@ -5,3 +5,46 @@ li a {
 body {
     background-color: lightyellow;
 }
+
+body {
+  background-color: #F5F5DC;
+}
+
+#about, #main_section_list, #main_section_page {
+  margin-top: 50px;
+}
+
+#polls {
+  margin-top: 25px;
+}
+
+.text-black-40 {
+  color: rgba(0,0,0,0.4)
+}
+
+#more {
+  margin-top: 30px;
+}
+
+#sites {
+  margin-top: 20px;
+}
+
+#text {
+  font-size: 30px;
+}
+
+.big {
+  border: 1px solid;
+}
+
+.small {
+  border-color: black;
+
+.title {
+  font-size: 10px;
+}
+
+#inline p {
+  display: inline;
+}

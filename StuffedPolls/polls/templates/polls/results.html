@@ -1,12 +1,44 @@
 {% extends 'stuff/base.html' %}
 {% block content %}
-    <h1>{{ question.question_text }}</h1>
-
-    <ul>
-        {% for choice in question.choice_set.all %}
-            <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-        {% endfor %}
-    </ul>
-
-    <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+    <section id="title">
+        <div class="row">
+            <div class="col-4">
+                <!-->
+            </div>
+            <div class="col-8">
+                 <h1>{{ question.question_text }}</h1>
+            </div>
+        </div>
+    </section>
+    <section id="main_section_page">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <div class="fill-viewport align-items-center">
+                        <h3 class="lead text-info">Quick Links:</h3>
+                        <h4><a href="{% url 'stuff:start' %}">Main Page</a></h4>
+                        <h4><a href="{% url 'stuff:faction' %}">Factions</a></h4>
+                        <h4><a href="{% url 'stuff:race' %}">Races</a></h4>
+                        <h4><a href="{% url 'stuff:class' %}">Classes</a></h4>
+                        <h4><a href="{% url 'stuff:characters' %}">Characters</a></h4>
+                        <h4><a href="{% url 'polls:index' %}">Polls</a></h4>
+                    </div>
+                </div>
+                <div class="col-9">
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <h3 class="lead text-info">Vote results:</h3>
+                    <ul class="list-unstyled">
+                        {% for choice in question.choice_set.all %}
+                            <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+                        {% endfor %}
+                    </ul>
+                    <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
+
+

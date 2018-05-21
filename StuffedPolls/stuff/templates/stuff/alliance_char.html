@@ -43,6 +43,9 @@
                     <h4>Race: {{object.race}}</h4>
                     <h4>Class: {{object.character_class}}</h4>
                     <h4>Status: {{object.status}}</h4>
+                    {% if object.status.is_player %}
+                        <h4>Level: {{object.level}}</h4>
+                    {% endif %}
                     <br />
                     <h2 class="lead text-info">Query Info:</h2>
                     <h4>ID: {{object.id}}   </h4>
