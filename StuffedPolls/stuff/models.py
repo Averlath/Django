@@ -18,6 +18,7 @@ class Status(models.Model):
 class AllianceRaces(models.Model):
     alliance_race = models.CharField(max_length=10, default="")
     alliance_text = models.CharField(max_length=9999, default="")
+    image = models.ImageField(upload_to='images', null=True, blank=True)
 
     def __str__(self):
         return self.alliance_race
@@ -29,6 +30,7 @@ class AllianceRaces(models.Model):
 class HordeRaces(models.Model):
     horde_race = models.CharField(max_length=10, default="")
     horde_text = models.CharField(max_length=9999, default="")
+    image = models.ImageField(upload_to='images', null=True, blank=True)
 
     def __str__(self):
         return self.horde_race
@@ -40,6 +42,7 @@ class HordeRaces(models.Model):
 class Class(models.Model):
     class_name = models.CharField(max_length=20, default="")
     class_text = models.CharField(max_length=9999, default="")
+    image = models.ImageField(upload_to='images', null=True, blank=True)
 
     def __str__(self):
         return self.class_name

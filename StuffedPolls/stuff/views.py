@@ -16,7 +16,6 @@ class CharacterView(ListView):
         ctx['num_alliance'] = AllianceCharacter.objects.count()
         ctx['num_horde'] = HordeCharacter.objects.count()
         ctx['num_total'] = AllianceCharacter.objects.count() + HordeCharacter.objects.count()
-        ctx['PLAYER_STATUS'] = Status.objects.get(pk=5)
         return ctx
 
 
