@@ -1,13 +1,42 @@
-{% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}"/>
-
-{% if latest_question_list %}
-    <ul>
-        {% for question in latest_question_list %}
-            <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-        {% endfor %}
-    </ul>
+{% extends 'stuff/base.html' %}
+{% block content %}
+    <section id="title">
+        <div class="row">
+            <div class="col-4">
+                <!-->
+            </div>
+            <div class="col-8">
+                <h1>Polls List</h1>
+            </div>
+        </div>
+    </section>
+    {% if latest_question_list %}
+        <ul>
+            {% for question in latest_question_list %}
+                <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+            {% endfor %}
+        </ul>
     {% else %}
         <p>No polls are available.</p>
-{% endif %}
+    {% endif %}
+{% endblock %}
+
+
+<section id="header" class="navbar nav-transparent text-primary">
+        <div class="container">
+            <div class="col-3">
+            </div>
+            <div class="col-1">
+                <img src="https://seeklogo.com/images/W/World_of_Warcraft_Horde_PvP-logo-E1C4DB80A9-seeklogo.com.png" height="50" width="40" />
+            </div>
+            <div class="col-3">
+                <h1>Characters</h1>
+            </div>
+            <div class="col-1">
+                <img src="https://awaitingthemuse.files.wordpress.com/2014/04/30day-day-1-alliance.png" height="50" width="50" />
+            </div>
+            <div class="col-4">
+                <!-->
+            </div>
+        </div>
+    </section>
