@@ -29,10 +29,12 @@
                 </div>
                 <div class="col-8">
                     {% for class in class_list %}
-			{% if class.image %}
-			    <img src="{{class.image.url}}" />
-                        {% endif %}
-                        <h2 class="lead text-info">{{class}}</h2>
+                        <h2 class="lead text-info">
+                            {% if class.image %}
+                                <img src="{{class.image.url}}" height="20" width="20" />
+                            {% endif %}
+                            {{class}}
+                        </h2>
                         <hr class="small" />
                         <p>{{class.class_text}}</p>
                     {% endfor %}

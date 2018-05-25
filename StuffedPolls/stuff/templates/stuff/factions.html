@@ -31,7 +31,7 @@
                     {% for faction in faction_list %}
                         <h2 class="title text-info">{{faction}}</h2>
                         <hr class="big" />
-                        <p>{{faction.faction_text}}</p>
+                        <p>{{faction.faction_text|safe}}</p>
                         <br />
                     {% endfor %}
                 </div>

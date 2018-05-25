@@ -18,10 +18,17 @@ class Status(models.Model):
 class AllianceRaces(models.Model):
     alliance_race = models.CharField(max_length=10, default="")
     alliance_text = models.CharField(max_length=9999, default="")
-    image = models.ImageField(upload_to='images', null=True, blank=True)
 
     def __str__(self):
         return self.alliance_race
+
+    @property
+    def is_race(self):
+        return self.alliance_race.__str__() != 'Pandaren'
+
+    @property
+    def is_pandaren(self):
+        return self.alliance_race.__str__() == 'Pandaren'
 
     class Meta:
         verbose_name_plural = "Alliance races"
@@ -30,10 +37,13 @@ class AllianceRaces(models.Model):
 class HordeRaces(models.Model):
     horde_race = models.CharField(max_length=10, default="")
     horde_text = models.CharField(max_length=9999, default="")
-    image = models.ImageField(upload_to='images', null=True, blank=True)
 
     def __str__(self):
         return self.horde_race
+
+    @property
+    def is_race(self):
+        return self.horde_race.__str__() != 'Pandaren'
 
     class Meta:
         verbose_name_plural = "Horde races"
@@ -83,6 +93,7 @@ class Character(models.Model):
 
     class Meta:
         abstract = True
+        ordering = ['character_class', 'character_name']
 
 
 class AllianceCharacter(Character):

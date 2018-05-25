@@ -28,21 +28,34 @@
                     </div>
                 </div>
                 <div class="col-8">
-
                     <h2 class="title text-info">Alliance</h2>
                     <hr class="big" /><br />
                     {% for race in allianceraces_list %}
-                        <h2 class="lead text-info">{{race}}</h2>
-                        <hr class="small">
-                        <p>{{race.alliance_text}}</p>
+                        {% if race.is_race %}
+                            <h2 class="lead text-info">{{race}}</h2>
+                            <hr class="small">
+                            <p>{{race.alliance_text}}</p>
+                        {% endif %}
                     {% endfor %}
                     <br /><br /><br />
                     <h2 class="title text-info">Horde</h2>
                     <hr class="big" /><br>
                     {% for race in horde_list %}
-                        <p class="lead text-info">{{race}}</p>
-                        <hr class="small">
-                        <p>{{race.horde_text}}</p>
+                        {% if race.is_race %}
+                            <p class="lead text-info">{{race}}</p>
+                            <hr class="small">
+                            <p>{{race.horde_text}}</p>
+                        {% endif %}
+                    {% endfor %}
+                    <br /><br /><br />
+                    <h2 class="title text-info">Neutral (Both)</h2>
+                    <hr class="big"> <br />
+                    {% for race in allianceraces_list %}
+                        {% if race.is_pandaren %}
+                            <h2 class="lead text-info">{{race}}</h2>
+                            <hr class="small">
+                            <p>{{race.alliance_text|safe}}</p>
+                        {% endif %}
                     {% endfor %}
                 </div>
                 <div class="col-1">

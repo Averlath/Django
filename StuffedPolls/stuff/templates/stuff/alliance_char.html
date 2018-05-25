@@ -31,10 +31,10 @@
                     <h2 id="text" class="lead text-info">About {{object.character_name}}</h2>
                     <hr class="big" />
                     {% if object.character_info != None %}
-                        <p>{{object.character_info}}</p>
+                        <p>{{object.character_info|safe}}</p>
                     {% endif %}	
                     {% if object.image %}
-                        <img src="{{object.image.url}}" width="300" height="250" alt="Image not found" />
+                        <img src="{{object.image.url}}" width="350" height="230" alt="Image not found" align="middle" />
                     {% endif %}
                 </div>
                 <div class="col-3">

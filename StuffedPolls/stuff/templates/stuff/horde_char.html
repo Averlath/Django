@@ -6,7 +6,7 @@
             <div class="col-3">
             </div>
             <div class="col-1">
-                <img src="https://awaitingthemuse.files.wordpress.com/2014/04/30day-day-1-alliance.png" height="50" width="50" />
+                <img src="https://seeklogo.com/images/W/World_of_Warcraft_Horde_PvP-logo-E1C4DB80A9-seeklogo.com.png" height="50" width="50" />
             </div>
             <div class="col-8">
                 <h1>{{object.character_name}}</h1>
@@ -31,7 +31,7 @@
                     <h2 id="text" class="lead text-info">About {{object.character_name}}</h2>
                     <hr class="big" />
                     {% if object.character_info != None %}
-                        <p>{{object.character_info}}</p>
+                        <p>{{object.character_info|safe}}</p>
                     {% endif %}	
                     {% if object.image %}
                         <img src="{{object.image.url}}" width="500" height="350" alt="Image not found" />
