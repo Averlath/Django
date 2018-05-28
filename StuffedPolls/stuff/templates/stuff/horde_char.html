@@ -34,7 +34,7 @@
                         <p>{{object.character_info|safe}}</p>
                     {% endif %}	
                     {% if object.image %}
-                        <img src="{{object.image.url}}" width="500" height="350" alt="Image not found" />
+                        <img src="{{object.image.url}}" style="margin-left: 30px;" width="450" height="280" alt="Image not found" align="middle" />
                     {% endif %}
                 </div>
                 <div class="col-3">
@@ -45,7 +45,7 @@
                     <h4>Status: {{object.status}}</h4>
                     <br />
                     <h2 class="lead text-info">Query Info:</h2>
-                    <h4>ID: {{object.id}}   </h4>
+                    <h4>ID: {{object.id}}</h4>
                     <h4>Created: {{object.article_creation_date}}</h4>
                 </div>
             </div>
